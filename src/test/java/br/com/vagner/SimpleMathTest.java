@@ -80,15 +80,23 @@ class SimpleMathTest {
 		assertEquals(expected, actual, () -> firstNumber + "/" + secondNumber + " did not produce" + expected + "!");
 	}
 	// test[System Under Test]_[Condition or State Change]_[Expected Result]
-	@Disabled("Ainda não concluido")
+	//@Disabled("Ainda não concluido")
 	@Test
 	@DisplayName("Teste Division By zero")
 	void testDivision_when_FirstNUmberIsDividedBYZero_ShouldThrowArithmeticException() {
-		fail();
-		// Given / Arrange
-		// When / Act
-		// Then / Assert
-		
+		//Given
+		double firstNumber = 6.2D;
+		double secondNumber = 0D;
+
+		var expectedMessage = "Impossible to divide by zero!";
+
+		ArithmeticException actual = assertThrows(ArithmeticException.class, () -> {
+			//When && Then
+			math.division(firstNumber, secondNumber);
+		}, () -> "Division by zero should throw an ArithmeticException");
+
+		assertEquals(expectedMessage, actual.getMessage(), () -> "Unexpected exception message!");
+
 	}
 	
 	@Test
