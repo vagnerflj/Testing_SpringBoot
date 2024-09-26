@@ -47,7 +47,7 @@ Este projeto teve como objetivo fortalecer minha expertise em testes unitários,
 ```bash
 ## 1. Clone o repositório:
 
-git clone https://github.com/seu-usuario/projeto-teste-spring-boot.git
+git clone https://github.com/vagnerflj/Testing_SpringBoot.git
 cd projeto-teste-spring-boot
 
 ## 2. Execute os Testes:

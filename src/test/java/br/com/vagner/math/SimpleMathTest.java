@@ -1,7 +1,8 @@
-package br.com.vagner;
+package br.com.vagner.math;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import br.com.vagner.SimpleMath;
 import org.junit.jupiter.api.*;
 
 @DisplayName("Teste Math Operations in Simplemath Class")
