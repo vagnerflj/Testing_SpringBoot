@@ -1,6 +1,10 @@
-# Projeto de Testes em Spring Boot
+# 💡 Projeto de Testes em Spring Boot
 
-Este projeto teve como objetivo fortalecer minha expertice em Testes unitarios  práticando sobre testes unitários e de integração em aplicações Spring Boot, utilizando JUnit 5 e Mockito. , aprendendendo na pratica os conceitos fundamentais e os aplique em situações reais.
+Este projeto teve como objetivo fortalecer minha expertise em testes unitários, praticando sobre testes unitários e de integração em aplicações Spring Boot, utilizando JUnit 5 e Mockito, aprendendo na prática os conceitos fundamentais e aplicando-os em situações reais.
+
+## 👨🏽‍💻 Desenvolvedor
+
++ Vagner Ferreira Lima Junior: [@vagnerflj](https://github.com/vagnerflj)
 
 ## Sumário
 
@@ -40,10 +44,16 @@ Este projeto teve como objetivo fortalecer minha expertice em Testes unitarios  
 
 
 ## Como executar
+```bash
+## 1. Clone o repositório:
 
 git clone https://github.com/seu-usuario/projeto-teste-spring-boot.git
 cd projeto-teste-spring-boot
 
+## 2. Execute os Testes:
+
+./mvnw test
+```
 ## Contribuição
 
 
