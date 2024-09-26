@@ -4,6 +4,7 @@ import br.com.vagner.SimpleMath;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -21,18 +22,16 @@ class SimpleMathTestS4 {
 	void beforEachMethod(){
 		math = new SimpleMath();
 	}
-	@DisplayName("Teste 6.2 / 2 = 3.1")
+	@DisplayName("Teste double subtraction [double firstNumber, double secondNumber, double expected]")
 	@ParameterizedTest
 	//@MethodSource("testDivisionInputParameters")
 	//@MethodSource()
-	@CsvSource({
-			"6.2, 2, 3.1",
-			"71, 14, 5.07",
-			"18.3, 3.1, 5.90"
-	})
+	@CsvFileSource(resources = "/testDivision.csv")
+
+
 	void testDivision(double firstNumber, double secondNumber, double expected) {
 
-		System.out.println("Test" + firstNumber + " / " + secondNumber + " = " + expected + "!");
+		System.out.println("Test " + firstNumber + " / " + secondNumber + " = " + expected + "!");
 		Double actual = math.division(firstNumber, secondNumber);
 		
 		assertEquals(expected, actual, 2D, () -> firstNumber + "/" + secondNumber + " did not produce" + expected + "!");
