@@ -3,6 +3,7 @@ package br.com.vagner;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -61,11 +62,15 @@ class SimpleMathTest {
 		
 		assertEquals(expected, actual, () -> firstNumber + "/" + secondNumber + " did not produce" + expected + "!");
 	}
-	
+	// test[System Under Test]_[Condition or State Change]_[Expected Result]
+	@Disabled("Ainda não concluido")
 	@Test
 	@DisplayName("Teste Division By zero")
 	void testDivision_when_FirstNUmberIsDividedBYZero_ShouldThrowArithmeticException() {
 		fail();
+		// Given / Arrange
+		// When / Act
+		// Then / Assert
 		
 	}
 	
@@ -91,8 +96,6 @@ class SimpleMathTest {
 		Double actual = math.squareRoot(Number);
 	
 		assertEquals(expected, actual, () -> "Aquare Root of " + Number + " did not produce" + expected + "!");
-		//assertNotEquals(9.2, actual);
-		//assertNotNull(actual);
-		 
 	}
+
 }
