@@ -3,11 +3,14 @@ package br.com.vagner;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+@DisplayName("Teste Math Operations in Simplemath Class")
 class SimpleMathTest {
 
 	@Test
+	@DisplayName("Teste 6.2 + 2 = 8.2")
 	void testSum_when_sixDottwoisAddedbyTwo_ShouldReturnEightDotTow() {
 		SimpleMath math = new SimpleMath();
 		double firstNumber = 6.2D;
@@ -21,6 +24,7 @@ class SimpleMathTest {
 		 
 	}
 	@Test
+	@DisplayName("Teste 6.2 - 2 = 4.2")
 	void testSubtraction() {
 		SimpleMath math = new SimpleMath();
 		double firstNumber = 6.2D;
@@ -31,6 +35,7 @@ class SimpleMathTest {
 		assertEquals(expected, actual, () -> firstNumber + "+" + secondNumber + " did not produce" + expected + "!");
 	}
 	@Test
+	@DisplayName("Teste 6.2 * 2 = 12.4")
 	void testMultiplication() {
 		SimpleMath math = new SimpleMath();
 		double firstNumber = 6.2D;
@@ -41,6 +46,7 @@ class SimpleMathTest {
 		assertEquals(expected, actual, () -> firstNumber + "*" + secondNumber + " did not produce" + expected + "!");
 	}
 	@Test
+	@DisplayName("Teste 6.2 / 2 = 3.1")
 	void testDivision() {
 		SimpleMath math = new SimpleMath();
 		double firstNumber = 6.2D;
@@ -52,12 +58,14 @@ class SimpleMathTest {
 	}
 	
 	@Test
+	@DisplayName("Teste Division By zero")
 	void testDivision_when_FirstNUmberIsDividedBYZero_ShouldThrowArithmeticException() {
 		fail();
 		
 	}
 	
 	@Test
+	@DisplayName("Teste (6.2 + 2)  / 2 = 4.1")
 	void testMean() {
 		SimpleMath math = new SimpleMath();
 		double firstNumber = 6.2D;
@@ -69,6 +77,7 @@ class SimpleMathTest {
 	}
 	
 	@Test
+	@DisplayName("Teste Square Root of 81 = 9")
 	void testSquareRoot() {
 		SimpleMath math = new SimpleMath();
 		double Number = 81D;
