@@ -38,5 +38,11 @@ class MethodOrderByOrderIndexTest {
 		System.out.println("Running Test C");
 		actualValue.append("2");
 	}
+	@Test
+	@Order(4)
+	void TestD() {
+		System.out.println("Running Test D");
+		actualValue.append("4");
+	}
 
 }
