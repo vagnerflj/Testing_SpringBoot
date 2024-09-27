@@ -11,19 +11,17 @@ import model.Person;
 class PersonServiceTest {
 	
 	Person person;
+	IPersonService service;
 	
 	@BeforeEach
 	void setup() {
 		person = new Person("Keith", "Moon", "Kmoon@vagner.com.br", "Wembley UK", "Male");
+		service = new PersonService();
 	}
 	
 	@DisplayName("When create a person with sucess should return a person object ")
 	@Test
 	void testCreatePerson_whenSucess_ShouldReturnPersonObject() {
-		
-		//Given / Arrange
-		IPersonService  service = new PersonService();
-		
 		
 		//When / Act
 		Person actual = service.createPerson(person);
@@ -36,10 +34,6 @@ class PersonServiceTest {
 	void testCreatePerson_whenSucess_ShouldContainsFirstNameInReturnPersonObject() {
 		
 		//Given / Arrange
-		IPersonService  service = new PersonService();
-		
-		
-		
 		//When / Act
 		Person actual = service.createPerson(person);
 		
@@ -51,5 +45,28 @@ class PersonServiceTest {
 		assertEquals(person.getGender(), actual.getGender(), () -> "The Gender is Incorrect!");
 		assertEquals(person.getEmail(), actual.getEmail(), () -> "The Email is Incorrect!");
 	}
-
+	
+	@DisplayName("When create a person with null e-mail should throw Exception")
+	@Test
+	void testCreatePerson_WhithNullEmail_ShouldThrowIllegalArgumentException() {
+		//Given / Arrange
+		
+		person.setEmail(null);
+		
+		var expectedMessage = "The Person e-mail is null or empty!";
+				
+		//When / Act & //Then / Assert
+		IllegalArgumentException exception = assertThrows(
+				IllegalArgumentException.class,
+				() ->  service.createPerson(person), 
+				() -> "Empty e-mail should have couse an IllegalArgumentException");
+		
+		//Then / Assert
+		assertEquals(expectedMessage, 
+				exception.getMessage(),
+				() -> "Exceprion error message is incorrect!");
+	
+	}
+		
+		
 }
