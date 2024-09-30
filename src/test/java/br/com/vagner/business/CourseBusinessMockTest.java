@@ -41,7 +41,7 @@ class CourseBusinessMockTest {
 		
 		when(mockService.retrieveCourses("Vagner")).thenReturn(courses);
 		//When /Act
-		var filteredCourses = business.retriveCoursesRElatedToSpring("Vagner");
+		var filteredCourses = business.retriveCoursesRelatedToSpring("Vagner");
 		
 		//Then / Assert
 		assertEquals(4, filteredCourses.size());

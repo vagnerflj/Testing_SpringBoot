@@ -15,7 +15,7 @@ class CourseBusinessStubTest {
 		CourseBusiness business = new CourseBusiness(stubService);
 		
 		//When /Act
-		var filteredCourses = business.retriveCoursesRElatedToSpring("Vagner");
+		var filteredCourses = business.retriveCoursesRelatedToSpring("Vagner");
 		
 		//Then / Assert
 		assertEquals(4, filteredCourses.size());
@@ -29,7 +29,7 @@ class CourseBusinessStubTest {
 		CourseBusiness business = new CourseBusiness(stubService);
 		
 		//When /Act
-		var filteredCourses = business.retriveCoursesRElatedToSpring("Foo Bar");
+		var filteredCourses = business.retriveCoursesRelatedToSpring("Foo Bar");
 		
 		
 		//Then / Assert
