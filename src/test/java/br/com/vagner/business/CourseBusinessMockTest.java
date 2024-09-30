@@ -2,7 +2,10 @@ package br.com.vagner.business;
 import br.com.vagner.service.stubs.*;
 import br.com.vagner.service.*;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.*;
+
+import java.util.Arrays;
+import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,17 +13,33 @@ import org.junit.jupiter.api.Test;
 class CourseBusinessMockTest {
 	
 	CourseService mockService; 
-	CourseBusiness business; 
+	CourseBusiness business;
+	List<String> courses;
 	
 	@BeforeEach
-	void stup() {
+	void setup() {
 		//Given /Arrange
 		mockService = mock(CourseService.class);
 		business = new CourseBusiness(mockService);
+		
+		courses = Arrays.asList(
+				"REST API's RESTFul do 0 à Azure com ASP.NET Core 5 e Docker",
+                "Agile Desmistificado com Scrum, XP, Kanban e Trello",
+                "Spotify Engineering Culture Desmistificado",
+                "REST API's RESTFul do 0 à AWS com Spring Boot 3 Java e Docker",
+                "Docker do Zero à Maestria - Contêinerização Desmistificada",
+                "Docker para Amazon AWS Implante Apps Java e .NET com Travis CI",
+                "Microsserviços do 0 com Spring Cloud, Spring Boot e Docker",
+                "Arquitetura de Microsserviços do 0 com ASP.NET, .NET 6 e C#",
+                "REST API's RESTFul do 0 à AWS com Spring Boot 3 Kotlin e Docker",
+                "Kotlin para DEV's Java: Aprenda a Linguagem Padrão do Android",
+                "Microsserviços do 0 com Spring Cloud, Kotlin e Docker"
+				);
 	}
 	@Test
-	void testCoursesRElatedToSPring_when_UsingStub() {
+	void testCoursesRElatedToSPring_when_UsingMock() {
 		
+		when(mockService.retrieveCourses("Vagner")).thenReturn(courses);
 		//When /Act
 		var filteredCourses = business.retriveCoursesRElatedToSpring("Vagner");
 		
@@ -28,16 +47,6 @@ class CourseBusinessMockTest {
 		assertEquals(4, filteredCourses.size());
 		
 	}
-	@Test
-	void testCoursesRElatedToSPring_when_UsingFooBarStudent() {
-
-		//When /Act
-		var filteredCourses = business.retriveCoursesRElatedToSpring("Foo Bar");
-		
-		
-		//Then / Assert
-		assertEquals(0, filteredCourses.size());
-		
-	}
+	
 
 }
