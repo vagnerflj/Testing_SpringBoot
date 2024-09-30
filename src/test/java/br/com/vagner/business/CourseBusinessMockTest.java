@@ -2,17 +2,24 @@ package br.com.vagner.business;
 import br.com.vagner.service.stubs.*;
 import br.com.vagner.service.*;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class CourseBusinessTest {
-
+class CourseBusinessMockTest {
+	
+	CourseService mockService; 
+	CourseBusiness business; 
+	
+	@BeforeEach
+	void stup() {
+		//Given /Arrange
+		mockService = mock(CourseService.class);
+		business = new CourseBusiness(mockService);
+	}
 	@Test
 	void testCoursesRElatedToSPring_when_UsingStub() {
-		
-		//Given /Arrange
-		CourseService stubService = new CourseServiceStub();
-		CourseBusiness business = new CourseBusiness(stubService);
 		
 		//When /Act
 		var filteredCourses = business.retriveCoursesRElatedToSpring("Vagner");
@@ -23,11 +30,7 @@ class CourseBusinessTest {
 	}
 	@Test
 	void testCoursesRElatedToSPring_when_UsingFooBarStudent() {
-		
-		//Given /Arrange
-		CourseService stubService = new CourseServiceStub();
-		CourseBusiness business = new CourseBusiness(stubService);
-		
+
 		//When /Act
 		var filteredCourses = business.retriveCoursesRElatedToSpring("Foo Bar");
 		
