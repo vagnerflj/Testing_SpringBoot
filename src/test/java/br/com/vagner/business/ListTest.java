@@ -51,12 +51,15 @@ public class ListTest {
 		
 		//Given
 		var list = mock(List.class);
+		
+		//If you are using argument matchers, all arguments
+		// have to be provided by matchers.
 		when(list.get(anyInt())).thenReturn("Erudio");
 		
 		
 		//When && Then
 		assertEquals("Erudio", list.get(anyInt()));
-		assertNull(list.get(anyInt()));
+		assertEquals("Erudio", list.get(anyInt()));
 		
 	}
 
