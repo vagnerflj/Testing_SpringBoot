@@ -1,5 +1,5 @@
 package br.com.vagner.business;
-import br.com.vagner.service.stubs.*;
+
 import br.com.vagner.service.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -47,6 +47,7 @@ class CourseBusinessMockTest {
 		assertEquals(4, filteredCourses.size());
 		
 	}
+	
 	
 
 }

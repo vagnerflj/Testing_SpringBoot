@@ -62,5 +62,21 @@ public class ListTest {
 		assertEquals("Erudio", list.get(anyInt()));
 		
 	}
+	@Test
+	void testMockingList_When_ThrowsAnException(){
+		
+		//Given
+		var list = mock(List.class);
+		
+		//If you are using argument matchers, all arguments
+		// have to be provided by matchers.
+		when(list.get(anyInt())).thenThrow(new RuntimeException("Foo Bar"));
+		
+		
+		//When && Then
+		assertThrows(RuntimeException.class, () -> {list.get(anyInt());}, () -> "Should have throw an RuntimeException");
+		
+		
+	}
 
 }
