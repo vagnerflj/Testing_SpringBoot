@@ -34,7 +34,7 @@ public class CourseBusiness {
 		var allCourses = service.retrieveCourses(student);
 		
 		for(String course : allCourses) {
-			if(course.contains("Spring")) {
+			if(!course.contains("Spring")) {
 				service.deleteCourse(course);
 			}
 		}
