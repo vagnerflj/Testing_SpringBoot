@@ -15,6 +15,7 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
 
 class CourseBusinessMockWithBDDTest {
 	
@@ -88,20 +89,45 @@ class CourseBusinessMockWithBDDTest {
 		//Given
 		given(mockService.retrieveCourses("Leandro")).willReturn(courses);
 		
+		String arquiteturaCourse = "Arquitetura de Microsserviços do 0 com ASP.NET, .NET 6 e C#";
+		String agileCourse = "Agile Desmistificado com Scrum, XP, Kanban e Trello";
+		String restSpringCourse = "Microsserviços do 0 com Spring Cloud, Kotlin e Docker";
+		
 		//When /Act
 		business.deleteCoursesNotRelatedToSpring("Leandro");
 		
-	
 		//Then
-		then(mockService).should().deleteCourse("Agile Desmistificado com Scrum, XP, Kanban e Trello");
-		
+		then(mockService).should().deleteCourse(agileCourse);
 		//Then
-		then(mockService).should().deleteCourse("Arquitetura de Microsserviços do 0 com ASP.NET, .NET 6 e C#");
-		
+		then(mockService).should().deleteCourse(arquiteturaCourse);
 		//Then
-		then(mockService).should(never()).deleteCourse("Microsserviços do 0 com Spring Cloud, Kotlin e Docker");
+		then(mockService).should(never()).deleteCourse(restSpringCourse);
 				
 	}
-	
+	@DisplayName("Delete Courses not Releted to Spring Capturing Arguments sould call method")
+	@Test
+	void testDeleteCoursesNotRelatedToSpring_CapturingArguments_Should_CallMethod_deleteCourseV2() {
+		
+		//Given
+		/*
+		courses = Arrays.asList(
+                "Agile Desmistificado com Scrum, XP, Kanban e Trello",
+                "REST API's RESTFul do 0 à AWS com Spring Boot 3 Java e Docker"
+                );
+		*/
+		given(mockService.retrieveCourses("Leandro")).willReturn(courses);
+		
+		ArgumentCaptor<String> argumentCaptor = ArgumentCaptor.forClass(String.class);
+		
+		//String agileCourse = "Agile Desmistificado com Scrum, XP, Kanban e Trello";
+		
+		//When /Act
+		business.deleteCoursesNotRelatedToSpring("Leandro");
+		
+		//Then
+		then(mockService).should(times(7)).deleteCourse(argumentCaptor.capture());
+		assertThat(argumentCaptor.getAllValues().size(), is(7));
+			
+	}
 
 }
