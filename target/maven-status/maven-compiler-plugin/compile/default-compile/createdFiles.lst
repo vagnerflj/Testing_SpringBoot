@@ -1,0 +1,6 @@
+br\com\vagner\business\CourseBusiness.class
+br\com\vagner\mockito\constructor\CheckoutService.class
+br\com\vagner\mockito\constructor\PaymentProcessor.class
+br\com\vagner\mockito\services\OrderService.class
+br\com\vagner\mockito\services\Order.class
+br\com\vagner\service\CourseService.class

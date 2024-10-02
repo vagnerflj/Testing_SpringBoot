@@ -1,0 +1,14 @@
+br\com\vagner\business\ListTestWithBDD.class
+br\com\vagner\mockito\SpyTest.class
+br\com\vagner\mockito\HamcrestMatchersTest.class
+br\com\vagner\business\ListTest.class
+br\com\vagner\business\CourseBusinessMockWithBDDTest.class
+br\com\vagner\mockito\staticwithparams\MyUtilsTest.class
+br\com\vagner\mockito\constructor\CheckoutServiceTest.class
+br\com\vagner\mockito\staticwithparams\MyUtils.class
+br\com\vagner\service\stubs\CourseServiceStub.class
+br\com\vagner\business\CourseBusinessStubTest.class
+br\com\vagner\mockito\constructor\PaymentProcessorTest.class
+br\com\vagner\business\CourseBusinessMockTest.class
+br\com\vagner\mockito\CourseBusinessMockitoInjectMocksTest.class
+br\com\vagner\mockito\services\OrderServiceTest.class
